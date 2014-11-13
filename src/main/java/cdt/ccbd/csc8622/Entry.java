@@ -3,11 +3,15 @@
  */
 package cdt.ccbd.csc8622;
 
+import org.apache.commons.lang.RandomStringUtils;
+
 /**
  * @author localadmin
  *
  */
 public class Entry {
+	private static final int ID_LENGTH = 10;
+	private final String id;
 	private String firstname;
 	private String surname;
 	private String address;
@@ -24,6 +28,7 @@ public class Entry {
 		this.address = address;
 		this.phonenumber = phonenumber;
 		this.dob = dob;
+		this.id = RandomStringUtils.randomAlphanumeric(10);
 	}
 
 	/**
@@ -94,5 +99,12 @@ public class Entry {
 	 */
 	public void setDob(String dob) {
 		this.dob = dob;
+	}
+	
+	/**
+	 * @return the id
+	 */
+	public String getId() {
+		return id;
 	}
 }
