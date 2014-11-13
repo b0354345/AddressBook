@@ -155,4 +155,98 @@ public class AddressBookTest {
 		assertEquals(list.get(1).getDob(), "99");	
 		assertEquals(list.get(2).getDob(), "99");
 	}
+	
+	/**
+	 * Test 'updateEntry' method for updating first name. 
+	 */
+	@Test
+	public void testUpdateEntryForFirtsname()
+	{
+		Entry ent = new Entry("oldname", "bbb", "ccc", "ddd", "99");
+		ab.addEntry(ent);
+		String id = ent.getId();		
+		ab.updateEntry(id, "name", "newname");
+		assertEquals(ab.getEntry(id).getFirstname(), "newname");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for updating surname. 
+	 */
+	@Test
+	public void testUpdateEntryForSurname()
+	{
+		Entry ent = new Entry("aaa", "oldsurname", "ccc", "ddd", "99");
+		String id = ent.getId();
+		ab.addEntry(ent);
+		ab.updateEntry(id, "surname", "newsurname");
+		assertEquals(ab.getEntry(id).getSurname(), "newsurname");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for updating address. 
+	 */
+	@Test
+	public void testUpdateEntryForAddress()
+	{
+		Entry ent = new Entry("aaa", "bbb", "oldaddress", "ddd", "99");
+		ab.addEntry(ent);
+		String id = ent.getId();
+		ab.updateEntry(id, "address", "newaddress");
+		assertEquals(ab.getEntry(id).getAddress(), "newaddress");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for updating phone number. 
+	 */
+	@Test
+	public void testUpdateEntryForPhonenumber()
+	{
+		Entry ent = new Entry("aaa", "bbb", "ccc", "oldnumber", "99");
+		ab.addEntry(ent);
+		String id = ent.getId();
+		ab.updateEntry(id, "phone number", "neewnumber");
+		assertEquals(ab.getEntry(id).getPhonenumber(), "neewnumber");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for updating date of birth. 
+	 */
+	@Test
+	public void testUpdateEntryForDOB()
+	{
+		Entry ent = new Entry("aaa", "bbb", "ccc", "ddd", "olddob");
+		ab.addEntry(ent);
+		String id = ent.getId();
+		ab.updateEntry(id, "date of birth", "newdob");
+		assertEquals(ab.getEntry(id).getDob(), "newdob");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for non stored entry . 
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testUpdateEntryForNonStoredEntry()
+	{
+		Entry ent = new Entry("aa", "bb", "cc", "dd", "ee");
+		Entry ent1 = new Entry("aaa", "bbb", "ccc", "ddd", "eee");
+		Entry ent2 = new Entry("aaaa", "bbbb", "cccc", "dddd", "eeee");
+		ab.addEntry(ent);
+		ab.addEntry(ent1);		
+		ab.updateEntry(ent2.getId(), "name", "newname");
+	}
+	
+	/**
+	 * Test 'updateEntry' method for invalid property . 
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testUpdateEntryForInvalidProperty()
+	{
+		Entry ent = new Entry("aa", "bb", "cc", "dd", "ee");
+		Entry ent1 = new Entry("aaa", "bbb", "ccc", "ddd", "eee");
+		ab.addEntry(ent);
+		ab.addEntry(ent1);		
+		ab.updateEntry(ent.getId(), "wrongproperty", "newname");
+	}
+	
+	
 }

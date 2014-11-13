@@ -1,6 +1,3 @@
-/**
- * 
- */
 package cdt.ccbd.csc8622;
 
 import org.apache.commons.lang.RandomStringUtils;

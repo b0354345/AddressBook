@@ -1,6 +1,3 @@
-/**
- * 
- */
 package cdt.ccbd.csc8622;
 
 import java.util.ArrayList;
@@ -9,20 +6,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * This class can be used to create instances of AddresBook where
+ * entries can be stored and searched.
  * @author Saleh Mohamed
- *
+ * @version 13/11/2014
  */
 public class AddressBook {
 	private List<String> ids = new ArrayList<String>();
 	private Map<String, Entry> entries = new HashMap<String, Entry>();
 	
 	/**
-	 * Constructor for creating an instance of  'AddressBook'
+	 * Parameterless constructor for creating an instance of  'AddressBook'
 	 */
-	public AddressBook()
-	{
-		
-	}
+	public AddressBook(){}
 	
 	/**
 	 * Method to add a new entry into this address book
@@ -132,6 +128,48 @@ public class AddressBook {
 				matchedEntries.add(value);				
 		}
 		return matchedEntries;
+	}
+	
+	/**
+	 * This method takes a stored entry id, a string indicating a specific property of
+	 * the entry to be updated, and a new value for that property.
+	 * @param id
+	 * @param property
+	 * @param value
+	 * @throws IllegalArgumentException if the id supplied is not in the address book or 
+	 * the string property supplied does not much to any of the entry's properties. 
+	 */
+	public void updateEntry(String id, String property, String value) {
+		if (!ids.contains(id))
+			throw new IllegalArgumentException("Entry not in the address book");
+		Entry ent = getEntry(id);
+		if (property.toLowerCase().equals("name"))
+			ent.setFirstname(value);
+		else if (property.toLowerCase().equals("surname"))
+			ent.setSurname(value);
+		else if (property.toLowerCase().equals("address"))
+			ent.setAddress(value);
+		else if (property.toLowerCase().equals("phone number"))
+			ent.setPhonenumber(value);
+		else if (property.toLowerCase().equals("date of birth"))
+			ent.setDob(value);
+		else
+			throw new IllegalArgumentException("Invalid second argument");
+	}
+	
+	/**
+	 * Return an entry corresponding to a given id
+	 */
+	public Entry getEntry(String id) 
+	{
+		Entry ent = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet())
+		{
+			if (entry.getKey().equals(id))
+				ent = entry.getValue();
+			break;
+		}
+		return ent;
 	}
 	
 	/**
