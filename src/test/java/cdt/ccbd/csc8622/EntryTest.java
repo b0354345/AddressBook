@@ -3,9 +3,10 @@
  */
 package cdt.ccbd.csc8622;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -128,6 +129,21 @@ public class EntryTest{
 	{
 		entry.setDob("01/01/2001");
 		assertEquals(entry.getDob(), "01/01/2001");
+	}
+	
+	/**
+	 * Test 'toString' method
+	 */
+	@Ignore
+	@Test
+	public void testToString()
+	{
+		String ent = "First name: John \nLast name: Brown \n"
+				+ "Address: 10 Downing Street \nPhone number: 01913456778"
+				+ "\nDOB: 20/12/1980";
+		System.out.println(ent);
+		System.out.println(entry.toString());
+		assertTrue(entry.toString().equals(ent));
 	}
 		
 }

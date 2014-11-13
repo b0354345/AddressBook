@@ -40,6 +40,116 @@ public class AddressBook {
 	}
 	
 	/**
-	 * 
+	 * Print the content of the address book
 	 */
+	public void printEntries()
+	{
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+		    System.out.println(entry.getValue() + "\n");
+		}	
+	}
+	
+	/**
+	 * Search the address book by first name and return a list of 
+	 * matched entries
+	 * @return - List of entries
+	 */
+	public List<Entry> searchByFirstname(String name)
+	{
+		List<Entry> matchedEntries = new ArrayList<Entry>();
+		Entry value = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+			value = entry.getValue();
+			if(value.getFirstname().equals(name))
+				matchedEntries.add(value);				
+		}
+		return matchedEntries;
+	}
+	
+	/**
+	 * Search the address book by surname and return a list of 
+	 * matched entries
+	 * @return - List of entries
+	 */
+	public List<Entry> searchBySurname(String surname)
+	{
+		List<Entry> matchedEntries = new ArrayList<Entry>();
+		Entry value = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+			value = entry.getValue();
+			if(value.getSurname().equals(surname))
+				matchedEntries.add(value);				
+		}
+		return matchedEntries;
+	}
+	
+	/**
+	 * Search the address book by address and return a list of 
+	 * matched entries
+	 * @return - List of entries
+	 */
+	public List<Entry> searchByAddress(String address)
+	{
+		List<Entry> matchedEntries = new ArrayList<Entry>();
+		Entry value = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+			value = entry.getValue();
+			if(value.getAddress().equals(address))
+				matchedEntries.add(value);				
+		}
+		return matchedEntries;
+	}
+	
+	/**
+	 * Search the address book by phone number and return a list of 
+	 * matched entries
+	 * @return - List of entries
+	 */
+	public List<Entry> searchByPhonenumber(String number)
+	{
+		List<Entry> matchedEntries = new ArrayList<Entry>();
+		Entry value = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+			value = entry.getValue();
+			if(value.getPhonenumber().equals(number))
+				matchedEntries.add(value);				
+		}
+		return matchedEntries;
+	}
+	
+	/**
+	 * Search the address book by DOB and return a list of 
+	 * matched entries
+	 * @return - List of entries
+	 */
+	public List<Entry> searchByDOB(String dob)
+	{
+		List<Entry> matchedEntries = new ArrayList<Entry>();
+		Entry value = null;
+		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
+			value = entry.getValue();
+			if(value.getDob().equals(dob))
+				matchedEntries.add(value);				
+		}
+		return matchedEntries;
+	}
+	
+	/**
+	 * Return a map of all entries in the address book
+	 * @return
+	 */
+	public Map<String, Entry> getEntries() {
+		// TODO Auto-generated method stub
+		return entries;
+	}
+	
+	/**
+	 * Return a list of all ids for the entry stored in the address book 
+	 * @return
+	 */
+	public List<String> getIds() {
+		// TODO Auto-generated method stub
+		return ids;
+	}
+	
 }

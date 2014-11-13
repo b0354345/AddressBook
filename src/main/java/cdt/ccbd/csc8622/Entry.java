@@ -10,6 +10,7 @@ import org.apache.commons.lang.RandomStringUtils;
  *
  */
 public class Entry {
+
 	private static final int ID_LENGTH = 10;
 	private final String id;
 	private String firstname;
@@ -106,5 +107,19 @@ public class Entry {
 	 */
 	public String getId() {
 		return id;
+	}
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		String str = "";
+		str += "ID: " + id + "\nFirst name: " + firstname + 
+				"\nLast name: " + surname +
+				"\nAddress: " + address +
+				"\nPhone number: " + phonenumber +
+				"\nDOB: " + dob;
+		return str;
 	}
 }
