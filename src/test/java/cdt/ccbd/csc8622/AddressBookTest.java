@@ -1,14 +1,13 @@
-/**
- * 
- */
 package cdt.ccbd.csc8622;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -49,7 +48,6 @@ public class AddressBookTest {
 	{
 		Entry ent = new Entry("aaa", "bbb", "ccc", "ddd", "eee");
 		ab.addEntry(ent);
-		ab.printEntries();
 		assertEquals(ab.getIds().size(), 2);
 		assertEquals(ab.getEntries().size(), 2);
 	}
@@ -222,10 +220,10 @@ public class AddressBookTest {
 	}
 	
 	/**
-	 * Test 'updateEntry' method for non stored entry . 
+	 * Test 'updateEntry' method for entry not stored in the address book . 
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testUpdateEntryForNonStoredEntry()
+	public void testUpdateEntryForEntryNotInAddressBook()
 	{
 		Entry ent = new Entry("aa", "bb", "cc", "dd", "ee");
 		Entry ent1 = new Entry("aaa", "bbb", "ccc", "ddd", "eee");
@@ -236,7 +234,7 @@ public class AddressBookTest {
 	}
 	
 	/**
-	 * Test 'updateEntry' method for invalid property . 
+	 * Test 'updateEntry' method for invalid property name. 
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void testUpdateEntryForInvalidProperty()
@@ -248,5 +246,27 @@ public class AddressBookTest {
 		ab.updateEntry(ent.getId(), "wrongproperty", "newname");
 	}
 	
-	
+	/**
+	 * Test 'toString' method that returns string representation of address book object
+	 */
+	@Ignore
+	@Test
+	public void testTostring()
+	{
+		String str = "ID: " + entry.getId() + 
+				"\nFirst name: aa\nLast name: bb\n"
+				+ "Address: cc\nPhone number: dd\nDOB: ee";
+
+		Entry ent1 = new Entry("aaa", "bbb", "ccc", "ddd", "eee");
+		String str1 = "ID: " + ent1.getId() +
+				"\nFirst name: aaa\nLast name: bbb\n"
+				+ "Address: ccc\nPhone number: ddd\nDOB: eee";
+		AddressBook ab1 = new AddressBook();		
+		System.out.println(str);
+		System.out.println();
+		System.out.println(ab.toString());
+		ab1.addEntry(ent1);
+		assertTrue(ab.toString().equals(str));
+		assertTrue(ab1.toString().equals(str1));
+	}
 }

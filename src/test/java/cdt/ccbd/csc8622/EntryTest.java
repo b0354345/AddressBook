@@ -138,11 +138,9 @@ public class EntryTest{
 	@Test
 	public void testToString()
 	{
-		String ent = "First name: John \nLast name: Brown \n"
-				+ "Address: 10 Downing Street \nPhone number: 01913456778"
+		String ent = "First name: John\nLast name: Brown\n"
+				+ "Address: 10 Downing Street\nPhone number: 01913456778"
 				+ "\nDOB: 20/12/1980";
-		System.out.println(ent);
-		System.out.println(entry.toString());
 		assertTrue(entry.toString().equals(ent));
 	}
 		

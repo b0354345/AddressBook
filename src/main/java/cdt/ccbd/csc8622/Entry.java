@@ -110,9 +110,8 @@ public class Entry {
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {
-		String str = "";
-		str += "ID: " + id + "\nFirst name: " + firstname + 
+	public String toString() {	
+		String str = "ID: " + id + "\nFirst name: " + firstname + 
 				"\nLast name: " + surname +
 				"\nAddress: " + address +
 				"\nPhone number: " + phonenumber +
