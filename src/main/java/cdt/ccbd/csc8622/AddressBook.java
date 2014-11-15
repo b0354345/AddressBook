@@ -187,9 +187,35 @@ public class AddressBook {
 	public String toString() {
 		String str = "";
 		for (Map.Entry<String, Entry> entry : entries.entrySet()) {
-			str += entry.getValue() + "\n";
+			str += entry.getValue() + "\n\n";
 		}
 		return str;
+	}
+	
+	/**
+	 * Testing the implementation of Address Book
+	 * @param args
+	 */
+	public static void main (String[] args) {
+		Entry ent1 = new Entry("John", "Shamte", "4 liverpool road", "0191355698", "12/03/1978");
+		Entry ent2 = new Entry("Ally", "Mohamed", "34 Byker Bridge", "0825689456", "03/06/1959");
+		Entry ent3 = new Entry("Allen", "Smith", "24 Wapembary close", "0131256981", "23/08/2002");
+		Entry ent4 = new Entry("Zidy", "Jackson", "12 Ilford lane", "0208236594", "23/05/1985");
+		Entry ent5 = new Entry("Holy", "Valance", "9 Downing road", "0195369875", "10/12/1999");
+		
+		
+		AddressBook ab1 = new AddressBook();
+		ab1.addEntry(ent1);
+		ab1.addEntry(ent2);
+		
+		AddressBook ab2 = new AddressBook();
+		ab2.addEntry(ent3);
+		ab2.addEntry(ent4);
+		ab2.addEntry(ent5);
+		System.out.println("Content of address book number one:");
+		System.out.println(ab1);
+		System.out.println("Content of address book number two:");
+		System.out.println(ab2);
 	}
 
 }

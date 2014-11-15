@@ -3,8 +3,11 @@ package cdt.ccbd.csc8622;
 import org.apache.commons.lang.RandomStringUtils;
 
 /**
- * @author localadmin
- *
+ * Entry class represents encapsulates properties of an entry (person) that can
+ * be stored in an address book.
+ * 
+ * @author Saleh Mohamed
+ * @version 13/11/2014
  */
 public class Entry {
 
@@ -15,18 +18,18 @@ public class Entry {
 	private String address;
 	private String phonenumber;
 	private String dob;
-	
+
 	/**
 	 * Constructor for instantiating objects of type 'Entry'
 	 */
-	public Entry(String firstname, String surname, String address, String phonenumber, String dob)
-	{
+	public Entry(String firstname, String surname, String address,
+			String phonenumber, String dob) {
 		this.firstname = firstname;
 		this.surname = surname;
 		this.address = address;
 		this.phonenumber = phonenumber;
 		this.dob = dob;
-		this.id = RandomStringUtils.randomAlphanumeric(10);
+		this.id = RandomStringUtils.randomAlphanumeric(ID_LENGTH);
 	}
 
 	/**
@@ -37,7 +40,8 @@ public class Entry {
 	}
 
 	/**
-	 * @param firstname the firstname to set
+	 * @param firstname
+	 *            the firstname to set
 	 */
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
@@ -51,7 +55,8 @@ public class Entry {
 	}
 
 	/**
-	 * @param surname the surname to set
+	 * @param surname
+	 *            the surname to set
 	 */
 	public void setSurname(String surname) {
 		this.surname = surname;
@@ -65,7 +70,8 @@ public class Entry {
 	}
 
 	/**
-	 * @param address the address to set
+	 * @param address
+	 *            the address to set
 	 */
 	public void setAddress(String address) {
 		this.address = address;
@@ -79,7 +85,8 @@ public class Entry {
 	}
 
 	/**
-	 * @param phonenumber the phonenumber to set
+	 * @param phonenumber
+	 *            the phonenumber to set
 	 */
 	public void setPhonenumber(String phonenumber) {
 		this.phonenumber = phonenumber;
@@ -93,29 +100,30 @@ public class Entry {
 	}
 
 	/**
-	 * @param dob the dob to set
+	 * @param dob
+	 *            the dob to set
 	 */
 	public void setDob(String dob) {
 		this.dob = dob;
 	}
-	
+
 	/**
 	 * @return the id
 	 */
 	public String getId() {
 		return id;
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString() {	
-		String str = "ID: " + id + "\nFirst name: " + firstname + 
-				"\nLast name: " + surname +
-				"\nAddress: " + address +
-				"\nPhone number: " + phonenumber +
-				"\nDOB: " + dob;
+	public String toString() {
+		String str = "ID: " + id + "\nFirst name: " + firstname
+				+ "\nLast name: " + surname + "\nAddress: " + address
+				+ "\nPhone number: " + phonenumber + "\nDOB: " + dob;
 		return str;
 	}
 }

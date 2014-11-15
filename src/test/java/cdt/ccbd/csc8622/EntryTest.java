@@ -1,6 +1,3 @@
-/**
- * 
- */
 package cdt.ccbd.csc8622;
 
 import static org.junit.Assert.*;
@@ -10,19 +7,20 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 /**
- * Test cases for the 'Entry' class 
+ * Test cases for the 'Entry' class
+ * 
  * @author Saleh Mohamed
  * @version 13/11/2014
  */
-public class EntryTest{
+public class EntryTest {
 	private Entry entry;
+
 	/**
-	 * Setup method is used to instantiate an Entry object before running 
-	 * test methods.
+	 * Setup method is used to instantiate an Entry object before running test
+	 * methods.
 	 */
 	@Before
-	public void setup()
-	{
+	public void setup() {
 		String firstname = "John";
 		String surname = "Brown";
 		String address = "10 Downing Street";
@@ -30,118 +28,107 @@ public class EntryTest{
 		String dob = "20/12/1980";
 		entry = new Entry(firstname, surname, address, phonenumber, dob);
 	}
-	
+
 	/**
 	 * Test "getFirstname" method
 	 */
 	@Test
-	public void testGetFirstname()
-	{
+	public void testGetFirstname() {
 		String firstname = entry.getFirstname();
 		assertEquals(firstname, "John");
 	}
-	
+
 	/**
 	 * Test "setFirstname" method
 	 */
 	@Test
-	public void testSetFirstname()
-	{
+	public void testSetFirstname() {
 		entry.setFirstname("Mike");
 		assertEquals(entry.getFirstname(), "Mike");
 	}
-	
+
 	/**
 	 * Test "getSurname" method
 	 */
 	@Test
-	public void testGetSurname()
-	{
+	public void testGetSurname() {
 		String surname = entry.getSurname();
 		assertEquals(surname, "Brown");
 	}
-	
+
 	/**
 	 * Test "setSurname" method
 	 */
 	@Test
-	public void testSetSurname()
-	{
+	public void testSetSurname() {
 		entry.setSurname("Tosh");
 		assertEquals(entry.getSurname(), "Tosh");
 	}
-		
+
 	/**
 	 * Test "getAddress" method
 	 */
 	@Test
-	public void testGetAddress()
-	{
+	public void testGetAddress() {
 		String address = entry.getAddress();
 		assertEquals(address, "10 Downing Street");
 	}
-	
+
 	/**
 	 * Test "setAddress" method
 	 */
 	@Test
-	public void testSetAdress()
-	{
+	public void testSetAdress() {
 		entry.setAddress("21 Simon side terrace");
 		assertEquals(entry.getAddress(), "21 Simon side terrace");
 	}
-	
+
 	/**
 	 * Test "getGetPhonenumber" method
 	 */
 	@Test
-	public void testGetPhonenumber()
-	{
+	public void testGetPhonenumber() {
 		String phonumber = entry.getPhonenumber();
 		assertEquals(phonumber, "01913456778");
 	}
-	
+
 	/**
 	 * Test "setPhonenumber" method
 	 */
 	@Test
-	public void testSetPhonenumber()
-	{
+	public void testSetPhonenumber() {
 		entry.setPhonenumber("02071235648");
 		assertEquals(entry.getPhonenumber(), "02071235648");
 	}
-	
+
 	/**
 	 * Test "getGetDob" method
 	 */
 	@Test
-	public void testGetDob()
-	{
+	public void testGetDob() {
 		String dob = entry.getDob();
 		assertEquals(dob, "20/12/1980");
 	}
-	
+
 	/**
 	 * Test "setPhonenumber" method
 	 */
 	@Test
-	public void testSetDob()
-	{
+	public void testSetDob() {
 		entry.setDob("01/01/2001");
 		assertEquals(entry.getDob(), "01/01/2001");
 	}
-	
+
 	/**
 	 * Test 'toString' method
 	 */
 	@Ignore
 	@Test
-	public void testToString()
-	{
+	public void testToString() {
 		String ent = "First name: John\nLast name: Brown\n"
 				+ "Address: 10 Downing Street\nPhone number: 01913456778"
 				+ "\nDOB: 20/12/1980";
 		assertTrue(entry.toString().equals(ent));
 	}
-		
+
 }
