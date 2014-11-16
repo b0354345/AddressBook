@@ -24,6 +24,6 @@ tests, package the application as a jar file and install it in your local reposi
 project, or as Java application through its main method specified inside the AddressBook class.
 
 (7) LICENSE (CAL):
--------------
+------------------
  This program is not a free software; you can redistribute it under the terms of 
- the CSC8622 Assignment License, but do not modify it. 
+ the CSC8622 Assignment License, but do not modify it.
